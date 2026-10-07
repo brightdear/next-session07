@@ -24,6 +24,8 @@ export async function generateReply(messages: Message[], signal: AbortSignal): P
     instructions: buildCharacterInstructions(), // 매 요청마다 서버의 캐릭터 설정 적용
     input: messages, // 사용자 대화는 instructions와 별개로 전달
     max_output_tokens: 1200,
+    reasoning: { effort: "none" }, // 짧은 잡담이라 생각 없이 바로 답해서 빠르게
+    text: { verbosity: "low" }, // 답변을 짧게
     store: false,
   }, { signal });
 
